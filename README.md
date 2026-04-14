@@ -1,147 +1,148 @@
 # Flanker Interference Reanalysis
 
-This repository documents a reproducible reanalysis of data from a small-sample Eriksen flanker experiment. The project reorganizes a raw spreadsheet export into block-level and subject-level datasets, reproduces the original repeated-measures ANOVA, and extends the workflow with a block-level mixed-effects model and descriptive error checks.
+This repository documents a reproducible reanalysis of a small-sample Eriksen flanker dataset. The project reorganizes a raw spreadsheet export into block-level and subject-level datasets, reproduces the original repeated-measures ANOVA, and extends the workflow with a block-level mixed-effects model and descriptive error checks.
 
-The dataset comes from a small-sample 2×2 within-subject flanker study, and the public repository should be read as a reproducibility and reanalysis exercise rather than a standalone experimental claim.
-
-The emphasis is methodological rather than substantive: data restructuring, repeated-measures inference, hierarchical thinking, transparent limitations, and reproducible reporting.
+The emphasis is methodological rather than claim-oriented: the repository focuses on data restructuring, repeated-measures inference, hierarchical thinking, transparent limitations, and reproducible reporting.
 
 ## Research Question
 
-How do **arrow load** (5 vs 7 arrows) and **flanker consistency** (consistent vs inconsistent non-target arrows) change the **congruency effect** in reaction-time data?
+How do arrow load and flanker consistency affect the congruency effect in an Eriksen flanker task?
 
-Here, the congruency effect is defined as:
+The reanalysis examines a 2×2 within-subject design with two experimental factors:
 
-`RT_incongruent - RT_congruent`
+- **Arrow load**: low (5 arrows) vs high (7 arrows)
+- **Flanker consistency**: consistent vs inconsistent
 
-A larger positive value indicates stronger behavioral interference.
-
-## Methodological contribution
-Instead of uploading the original course submission, this repository presents the strongest research-training signal in the project:
-
-- reconstruction of a messy raw export into analysis-ready data
-- validation that the reconstructed summary reproduces the original summary exactly
-- replication of the original 2 x 2 repeated-measures ANOVA
-- extension to a block-level mixed-effects model
-- descriptive error analysis and missingness reporting
-- explicit statement of design and inference limits
+The outcome of interest is the **congruency effect in milliseconds**, defined as the difference between incongruent and congruent reaction times.
 
 ## Data Structure
 
-- `data/raw/flanker_block_export.csv`: original spreadsheet export preserved for provenance
-- `data/raw/flanker_subject_summary_original.csv`: original 48-row summary file
-- `data/processed/flanker_block_level.csv`: reconstructed block-level dataset (240 rows)
-- `data/processed/flanker_subject_summary.csv`: reconstructed subject-level dataset (48 rows)
+The repository preserves both the original spreadsheet export and the reconstructed analysis-ready datasets.
 
-The reconstructed subject-level summary matches the original summary exactly:
-- matched rows: 48 / 48
-- maximum absolute difference: 0 ms
+### Raw data
+
+- `data/raw/flanker_block_export.csv`  
+  Original spreadsheet-style export retained for provenance.
+
+- `data/raw/flanker_subject_summary_original.csv`  
+  Original subject-condition summary file used as a validation target.
+
+### Processed data
+
+- `data/processed/flanker_block_level.csv`  
+  Reconstructed block-level dataset with 240 rows:
+  - 12 participants
+  - 5 repeated observations per condition
+  - 4 within-subject conditions
+
+- `data/processed/flanker_subject_summary.csv`  
+  Reconstructed subject-level summary with 48 rows:
+  - 12 participants
+  - 4 within-subject conditions
+
+The processed summary matches the original summary exactly.
 
 ## Analysis Workflow
 
-1. Parse the original export into a block-level tidy dataset.
-2. Aggregate block-level data to a subject-level summary.
-3. Validate the reconstructed summary against the original file.
-4. Reproduce the 2 x 2 repeated-measures ANOVA.
-5. Reanalyze the block-level data with a mixed-effects model.
-6. Summarize error patterns and document missingness.
-7. Generate portfolio-ready figures.
+The workflow proceeds in four steps:
 
-## Main Results
+1. **Parse the original export** into a tidy block-level dataset.
+2. **Reconstruct subject-level summaries** and validate them against the original summary file.
+3. **Reproduce the repeated-measures ANOVA** reported in the original analysis.
+4. **Extend the analysis** with a block-level mixed-effects model and descriptive error checks.
 
-![Condition means with 95% CIs](results/figures/condition_means_95ci.png)
+## Main Findings
 
-### Subject-level repeated-measures ANOVA
+### 1. Validation of reconstructed summaries
 
-- **Arrow load:** F(1, 11) = 4.80, p = 0.051, partial eta squared = 0.304
-- **Flanker consistency:** F(1, 11) = 67.56, p < .001, partial eta squared = 0.860
-- **Interaction:** F(1, 11) = 2.82, p = 0.121, partial eta squared = 0.204
+The reconstructed subject-level summary reproduces the original summary exactly:
 
-### Condition means
+- 48 out of 48 rows matched
+- Maximum absolute difference: **0 ms**
 
-- Low / Inconsistent: 33.48 ms
-- Low / Consistent: 66.02 ms
-- High / Inconsistent: 35.02 ms
-- High / Consistent: 82.50 ms
+### 2. Repeated-measures ANOVA
 
-### Within-load contrasts
+The subject-level repeated-measures ANOVA produced the following results:
 
-- Low load, consistent minus inconsistent: 32.54 ms, t(11) = 4.19, Holm-adjusted p = 0.0015
-- High load, consistent minus inconsistent: 47.48 ms, t(11) = 9.19, Holm-adjusted p < 0.001
+- **Arrow load**: F(1, 11) = 4.80, p = 0.051, partial eta squared = 0.304
+- **Flanker consistency**: F(1, 11) = 67.56, p < 0.001, partial eta squared = 0.860
+- **Interaction**: F(1, 11) = 2.82, p = 0.121, partial eta squared = 0.204
 
-### Block-level mixed-effects model
+The strongest and most stable signal is the main effect of flanker consistency.
 
-Using the block-level dataset and a participant random intercept:
+### 3. Condition means
 
-- **Intercept (low / inconsistent):** 33.48 ms
-- **Arrow load effect at inconsistent condition:** 1.54 ms, p = 0.832
-- **Consistency effect at low load:** 32.54 ms, p < .001
-- **Interaction:** 14.94 ms, p = 0.146
+Mean congruency effects by condition:
 
-The block-level model supports the same qualitative interpretation as the subject-level ANOVA: a strong consistency effect, weak evidence for arrow load, and no clear interaction.
+- Low load / Inconsistent: **33.48 ms**
+- Low load / Consistent: **66.02 ms**
+- High load / Inconsistent: **35.02 ms**
+- High load / Consistent: **82.50 ms**
 
-### Error patterns
+These condition means indicate substantially larger congruency effects under consistent flankers.
 
-Error fields are partially missing for participants 5 and 6 under low-load conditions, so accuracy analyses are descriptive rather than inferential.
+### 4. Within-load contrasts
 
-Observed mean error counts:
+Pairwise contrasts comparing consistent vs inconsistent flankers within each load condition:
 
-- Low / Inconsistent: 1.50
-- Low / Consistent: 2.39
-- High / Inconsistent: 1.35
-- High / Consistent: 1.78
+- **Low load**: +32.54 ms, t(11) = 4.19, Holm-adjusted p = 0.0015
+- **High load**: +47.48 ms, t(11) = 9.19, Holm-adjusted p < 0.001
 
-Across complete subject-condition means, larger congruency effects were positively associated with larger error counts (r = 0.46, p = 0.002; n = 44), which is a reason to report accuracy alongside reaction-time outcomes rather than ignoring it.
+### 5. Block-level mixed-effects model
+
+Using the reconstructed 240-row block-level dataset, the mixed-effects model showed:
+
+- A strong consistency effect under low load
+- Little evidence for a main effect of arrow load on its own
+- No clear evidence for the interaction
+
+The block-level reanalysis therefore supports the same broad interpretation as the subject-level ANOVA: **flanker consistency is the dominant effect in this dataset**.
+
+### 6. Error patterns
+
+Error counts are included as a descriptive secondary outcome. Two participants have missing low-load error entries in the original export, so error analyses should be interpreted cautiously.
+
+The error summaries suggest that accuracy should be reported alongside reaction-time effects rather than ignored.
+
+## Figures and Tables
+
+The repository includes:
+
+- condition mean plots with 95% confidence intervals
+- participant-level trajectory plots
+- block-level distribution plots
+- descriptive error-pattern plots
+- ANOVA, contrast, mixed-model, and validation tables
+
+See `results/figures/` and `results/tables/` for outputs.
 
 ## Repository Structure
 
 ```text
 flanker-interference-reanalysis/
-├── README.md
-├── requirements.txt
 ├── data/
 │   ├── raw/
+│   │   ├── flanker_block_export.csv
+│   │   └── flanker_subject_summary_original.csv
 │   └── processed/
+│       ├── flanker_block_level.csv
+│       └── flanker_subject_summary.csv
+├── docs/
+│   ├── attribution.md
+│   ├── data_dictionary.md
+│   ├── limitations.md
+│   └── study_design.md
+├── results/
+│   ├── figures/
+│   ├── tables/
+│   └── analysis_summary.md
 ├── scripts/
-│   ├── utils.py
 │   ├── 01_parse_raw_export.py
 │   ├── 02_validate_reconstructed_summary.py
 │   ├── 03_reproduce_rm_anova.py
 │   ├── 04_block_level_mixed_model.py
 │   ├── 05_error_analysis.py
-│   └── 06_make_figures.py
-├── results/
-│   ├── figures/
-│   └── tables/
-└── docs/
-    ├── attribution.md
-    ├── data_dictionary.md
-    ├── limitations.md
-    └── study_design.md
-```
-
-## Reproducibility
-
-Create an environment and install the dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Run the workflow in order:
-
-```bash
-python scripts/01_parse_raw_export.py
-python scripts/02_validate_reconstructed_summary.py
-python scripts/03_reproduce_rm_anova.py
-python scripts/04_block_level_mixed_model.py
-python scripts/05_error_analysis.py
-python scripts/06_make_figures.py
-```
-## Attribution and limitations
-
-This repository is based on collaboratively collected classroom data. The public version should be framed as an individual reanalysis, documentation, and reproducibility project.
-
-See:
-- `docs/attribution.md`
-- `docs/limitations.md`
+│   ├── 06_make_figures.py
+│   └── utils.py
+├── README.md
+└── requirements.txt
