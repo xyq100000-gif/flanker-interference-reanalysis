@@ -1,8 +1,8 @@
 # Flanker Interference Reanalysis
 
-This repository documents a reproducible reanalysis of data from a classroom Eriksen flanker experiment. The project reorganizes a raw spreadsheet export into block-level and subject-level datasets, reproduces the original repeated-measures ANOVA, and extends the workflow with a block-level mixed-effects model and descriptive error checks.
+This repository documents a reproducible reanalysis of data from a small-sample Eriksen flanker experiment. The project reorganizes a raw spreadsheet export into block-level and subject-level datasets, reproduces the original repeated-measures ANOVA, and extends the workflow with a block-level mixed-effects model and descriptive error checks.
 
-The dataset comes from a small classroom 2×2 within-subject flanker study, and the public repository should be read as a reproducibility and reanalysis exercise rather than a standalone experimental claim.
+The dataset comes from a small-sample 2×2 within-subject flanker study, and the public repository should be read as a reproducibility and reanalysis exercise rather than a standalone experimental claim.
 
 The emphasis is methodological rather than substantive: data restructuring, repeated-measures inference, hierarchical thinking, transparent limitations, and reproducible reporting.
 
@@ -16,8 +16,7 @@ Here, the congruency effect is defined as:
 
 A larger positive value indicates stronger behavioral interference.
 
-## Why this version is portfolio-ready
-
+## Methodological contribution
 Instead of uploading the original course submission, this repository presents the strongest research-training signal in the project:
 
 - reconstruction of a messy raw export into analysis-ready data
@@ -139,15 +138,6 @@ python scripts/04_block_level_mixed_model.py
 python scripts/05_error_analysis.py
 python scripts/06_make_figures.py
 ```
-
-## How to present this project on a PhD-facing GitHub
-
-Present it as a **methods-oriented reanalysis**, not as a standalone cognitive-neuroscience discovery project.
-
-Recommended one-line description:
-
-> Reorganized raw behavioral data from a classroom Eriksen flanker experiment into a reproducible analysis workflow, reproducing repeated-measures ANOVA results and extending them with block-level mixed-effects reanalysis.
-
 ## Attribution and limitations
 
 This repository is based on collaboratively collected classroom data. The public version should be framed as an individual reanalysis, documentation, and reproducibility project.
