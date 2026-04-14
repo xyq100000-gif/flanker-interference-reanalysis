@@ -1,0 +1,5 @@
+arrow_load,flanker_consistency,mean_rt_congruent_ms,mean_rt_incongruent_ms,mean_congruency_effect_ms
+high,consistent,448.0,530.5,82.5
+high,inconsistent,479.0333333333333,514.0500000000001,35.016666666666666
+low,consistent,502.4666666666667,568.4833333333333,66.01666666666667
+low,inconsistent,464.65000000000003,498.125,33.475

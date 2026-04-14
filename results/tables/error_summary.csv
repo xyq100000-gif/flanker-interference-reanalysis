@@ -1,0 +1,5 @@
+arrow_load,flanker_consistency,mean_error_count,sd_error_count,n_nonmissing
+high,consistent,1.7833333333333332,1.021436896402971,12
+high,inconsistent,1.3499999999999999,0.7960127911260995,12
+low,consistent,2.3899999999999997,1.4910473574713252,10
+low,inconsistent,1.5,0.9626352718795768,10
