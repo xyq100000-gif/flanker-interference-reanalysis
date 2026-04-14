@@ -2,6 +2,8 @@
 
 This repository documents a reproducible reanalysis of data from a classroom Eriksen flanker experiment. The project reorganizes a raw spreadsheet export into block-level and subject-level datasets, reproduces the original repeated-measures ANOVA, and extends the workflow with a block-level mixed-effects model and descriptive error checks.
 
+The dataset comes from a small classroom 2×2 within-subject flanker study, and the public repository should be read as a reproducibility and reanalysis exercise rather than a standalone experimental claim.
+
 The emphasis is methodological rather than substantive: data restructuring, repeated-measures inference, hierarchical thinking, transparent limitations, and reproducible reporting.
 
 ## Research Question
@@ -66,7 +68,7 @@ The reconstructed subject-level summary matches the original summary exactly:
 ### Within-load contrasts
 
 - Low load, consistent minus inconsistent: 32.54 ms, t(11) = 4.19, Holm-adjusted p = 0.0015
-- High load, consistent minus inconsistent: 47.48 ms, t(11) = 9.19, Holm-adjusted p = 0.0000
+- High load, consistent minus inconsistent: 47.48 ms, t(11) = 9.19, Holm-adjusted p < 0.001
 
 ### Block-level mixed-effects model
 
