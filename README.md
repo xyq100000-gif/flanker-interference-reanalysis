@@ -28,7 +28,7 @@ Instead of uploading the original course submission, this repository presents th
 
 ## Data Structure
 
-- `data/raw/flanker_block_export.csv`: original classroom spreadsheet export
+- `data/raw/flanker_block_export.csv`: original spreadsheet export preserved for provenance
 - `data/raw/flanker_subject_summary_original.csv`: original 48-row summary file
 - `data/processed/flanker_block_level.csv`: reconstructed block-level dataset (240 rows)
 - `data/processed/flanker_subject_summary.csv`: reconstructed subject-level dataset (48 rows)
