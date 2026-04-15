@@ -4,7 +4,7 @@
 
 `data/raw/flanker_block_export.csv`
 
-This is the original spreadsheet export from the classroom experiment. It is intentionally preserved in its original wide format for provenance.
+This is the original spreadsheet export retained for provenance. It is intentionally preserved in its original wide format for provenance.
 
 ## Processed files
 
