@@ -1,6 +1,6 @@
 # Study Design
 
-- Task: classroom version of the Eriksen flanker task
+- Task: Eriksen flanker task
 - Design: 2 x 2 within-subject factorial design
 - Participants: 12
 - Factors:
