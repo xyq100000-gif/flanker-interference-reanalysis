@@ -33,7 +33,7 @@ Interpretation: the consistency effect is very strong, the arrow-load main effec
 | Contrast | Estimate (ms) | t | p (Holm) |
 |---|---:|---:|---:|
 | Low: consistent - inconsistent | 32.54 | 4.19 | 0.0015 |
-| High: consistent - inconsistent | 47.48 | 9.19 | 0.0000 |
+| High: consistent - inconsistent | 47.48 | 9.19 | <0.0001 |
 
 Interpretation: the consistency contrast is strong under both load conditions.
 
