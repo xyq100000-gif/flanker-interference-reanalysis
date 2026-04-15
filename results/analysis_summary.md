@@ -2,7 +2,7 @@
 
 ## What was rerun
 
-I reconstructed the raw classroom spreadsheet into a block-level dataset (240 rows) and a subject-level summary dataset (48 rows), then reran the main analyses.
+I reconstructed the raw spreadsheet into a block-level dataset (240 rows) and a subject-level summary dataset (48 rows), then reran the main analyses.
 
 ## Validation
 
