@@ -60,4 +60,4 @@ Mean error counts:
 | High / Inconsistent | 1.35 |
 | High / Consistent | 1.78 |
 
-Across complete subject-condition means, congruency effect and error count are positively associated (r = 0.46, p = 0.002; n = 44). That is a good reason to keep accuracy in the public-facing version of the project.
+Across complete subject-condition means, congruency effect and error count are positively associated (r = 0.46, p = 0.002; n = 44). That is a good reason to keep accuracy in the project summary.
