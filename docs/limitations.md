@@ -1,6 +1,6 @@
 # Limitations
 
-1. **Small classroom sample**
+1. **Small sample**
    The dataset includes 12 participants. This is useful for demonstrating repeated-measures workflow, but not for making strong substantive claims.
 
 2. **Behavioral data only**
@@ -13,4 +13,4 @@
    Low-load error fields are missing for two participants (participants 5 and 6). Error analyses should therefore be treated as descriptive.
 
 5. **Collaborative data collection**
-   The underlying experiment and data collection were collaborative classroom work. This repository should be presented as an individual reanalysis and documentation project, not as a solo data-collection study.
+   The underlying experiment and data collection were collaborative work. This repository should be presented as an individual reanalysis and documentation project, not as a solo data-collection study.
